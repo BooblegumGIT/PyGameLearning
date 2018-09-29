@@ -5,12 +5,12 @@ pygame.init()  # инициализация
 display = pygame.display.set_mode((400, 400))  # создание окна
 
 screen = pygame.display.get_surface()  # определяем поверхность для рисования
-image = pygame.image.load('Images/skeleton.png')  # загружаем картинку
-print(type(image))
-
-if image:
+image_path = 'Images/keleton.png'
+try:
+    image = pygame.image.load(image_path)  # загружаем картинку
     done = False
-else:
+except pygame.error:
+    print("Can't load image:", image_path)
     done = True
 
 while not done:  # главный цикл программы
